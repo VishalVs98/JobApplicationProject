@@ -1,5 +1,6 @@
 package com.jobportal.review.job.service;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.jobportal.review.job.entity.Job;
@@ -29,13 +30,30 @@ public class JobServiceImpl implements JobService{
 		return null;
 	}
 	@Override
-	public void deleteById(Long Id) {
+	public boolean deleteById(Long Id) {
 		// TODO Auto-generated method stub
-		for(Job job:jobs) {
-			if(job.getId()==Id) {
-			   jobs.remove(job);
+		Iterator<Job> itr=jobs.iterator();
+		while(itr.hasNext()) {
+			Job job=itr.next();
+			if(job.getId().equals(Id)) {
+				return true;
 			}
 		}
-		
+		return false;
+	}
+	@Override
+	public boolean updatedJob(Long id, Job updatedJobs) {
+		// TODO Auto-generated method stub
+		for(Job j:jobs) {
+			if(j.getId().equals(id)) {
+				j.setTitle(updatedJobs.getTitle());
+				j.setDescription(updatedJobs.getDescription());
+				j.setMinSalary(updatedJobs.getMinSalary());
+				j.setMaxSalary(updatedJobs.getMaxSalary());
+				j.setLocation(updatedJobs.getLocation());
+				return true;
+			}
+		}
+		return false;
 	}
 }

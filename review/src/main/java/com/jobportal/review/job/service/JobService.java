@@ -5,5 +5,6 @@ public interface JobService {
    List<Job>findAll();
    void createJob(Job job);
    Job findById(Long Id);
-   void deleteById(Long Id);
+   boolean deleteById(Long Id);
+   boolean updatedJob(Long id, Job job);
 }
