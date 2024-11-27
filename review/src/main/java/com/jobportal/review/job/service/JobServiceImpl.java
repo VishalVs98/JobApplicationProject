@@ -7,7 +7,6 @@ import com.jobportal.review.job.entity.Job;
 import com.jobportal.review.job.repository.JobRepository;
 @Service
 public class JobServiceImpl implements JobService{
-	private Long nxtId=1L;
 	@Autowired
 	private JobRepository jobRepository;
 	@Override
@@ -17,7 +16,6 @@ public class JobServiceImpl implements JobService{
 	}
 	@Override
 	public void createJob(Job job) {
-		job.setId(nxtId++);
 		jobRepository.save(job);
 	}
 	@Override

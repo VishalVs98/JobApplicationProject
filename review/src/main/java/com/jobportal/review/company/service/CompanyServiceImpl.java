@@ -9,7 +9,6 @@ import com.jobportal.review.company.entity.Company;
 import com.jobportal.review.company.repository.CompanyRepository;
 @Service
 public class CompanyServiceImpl implements CompanyService{
-
 	@Autowired
 	private CompanyRepository companyRepository;
 	@Override
