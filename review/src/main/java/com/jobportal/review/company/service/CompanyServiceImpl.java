@@ -33,4 +33,14 @@ public class CompanyServiceImpl implements CompanyService{
 		// TODO Auto-generated method stub
 		companyRepository.save(company);
 	}
+	@Override
+	public boolean deleteCompany(Long id) {
+		// TODO Auto-generated method stub
+		if(companyRepository.existsById(id)) {
+			companyRepository.deleteById(id);
+			return true;
+		}else {
+			return false;
+		}
+	}
 }

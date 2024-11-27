@@ -26,10 +26,10 @@ public class JobServiceImpl implements JobService{
 	@Override
 	public boolean deleteById(Long Id) {
 		// TODO Auto-generated method stub
-		try {
+		if(jobRepository.existsById(Id)) {
 			jobRepository.deleteById(Id);
 			return true;
-		}catch(Exception e) {
+		}else {
 			return false;
 		}
 	}
