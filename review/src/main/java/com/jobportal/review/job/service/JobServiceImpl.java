@@ -11,7 +11,6 @@ public class JobServiceImpl implements JobService{
 	private JobRepository jobRepository;
 	@Override
 	public List<Job> findAll() {
-		// TODO Auto-generated method stub
 		return jobRepository.findAll();
 	}
 	@Override
@@ -20,12 +19,10 @@ public class JobServiceImpl implements JobService{
 	}
 	@Override
 	public Job findById(Long Id) {
-		// TODO Auto-generated method stub
 		return jobRepository.findById(Id).orElse(null);
 	}
 	@Override
 	public boolean deleteById(Long Id) {
-		// TODO Auto-generated method stub
 		if(jobRepository.existsById(Id)) {
 			jobRepository.deleteById(Id);
 			return true;
@@ -35,7 +32,6 @@ public class JobServiceImpl implements JobService{
 	}
 	@Override
 	public boolean updatedJob(Long id, Job updatedJobs) {
-		// TODO Auto-generated method stub
 		Optional<Job> jobOption=jobRepository.findById(id);
 			if(jobOption.isPresent()) {
 				Job j=jobOption.get();

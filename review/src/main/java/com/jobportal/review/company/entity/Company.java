@@ -3,6 +3,8 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jobportal.review.job.entity.Job;
+import com.jobportal.review.review.entity.Review;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,7 +19,9 @@ public class Company {
 	private String description;
 	@JsonIgnore
 	@OneToMany(mappedBy= "company")
-	private List<Job> jobs;    
+	private List<Job> jobs; 
+	@OneToMany(mappedBy="company")
+	private List<Review> review;
 	public Company() {
 
 	}
@@ -45,4 +49,11 @@ public class Company {
 	public void setJobs(List<Job> jobs) {
 		this.jobs = jobs;
 	}
+	public List<Review> getReview() {
+		return review;
+	}
+	public void setReview(List<Review> review) {
+		this.review = review;
+	}
+	
 }
